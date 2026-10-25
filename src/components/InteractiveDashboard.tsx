@@ -120,15 +120,15 @@ export const InteractiveDashboard: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-2 text-xs font-semibold text-sky-400 mb-2">
-            <span>Interactive Product Sandbox</span>
+            <span>Featured Portfolio Project</span>
             <span aria-hidden="true" className="text-slate-600">·</span>
             <span>Simulated Sample Data</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white [text-wrap:balance]">
-            Experience clear business intelligence without the learning curve.
+            An interactive dashboard concept built to make complex metrics easier to explore.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-            Interact with live dataset switches, time horizons, and variance models. Notice how scattered operational numbers resolve into plain-English decision briefs.
+            This fictional SaaS concept demonstrates responsive layout, interactive metric filters, SVG chart rendering, simulated anomaly states, and client-side CSV export. All figures are illustrative.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export const InteractiveDashboard: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 rounded-full bg-sky-400" />
               <div className="text-xs sm:text-sm font-semibold text-white">
-                Live Analytics Workbench
+                MetricFlow — Demo Workbench
               </div>
               <span className="hidden sm:inline text-xs text-slate-500">|</span>
               <span className="hidden sm:inline text-xs text-slate-400">Sample Company Workspace</span>
@@ -430,7 +430,7 @@ export const InteractiveDashboard: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-xs font-semibold text-teal-400">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span>MetricFlow Decision Intelligence</span>
+                      <span>Illustrative Automated Insight</span>
                     </div>
                     <span className="text-[11px] text-slate-500 font-mono">Automated brief</span>
                   </div>
