@@ -15,7 +15,7 @@ export default function App() {
     <Navbar onOpenTour={() => setIsTourOpen(true)} onSelectDemo={() => scrollToSection('interactive-demo')} />
     <main className="flex-1">
       <Hero onOpenTour={() => setIsTourOpen(true)} onScrollToDemo={() => scrollToSection('work')} />
-      <div id="interactive-demo" className="scroll-mt-24"><InteractiveDashboard /></div>
+      <InteractiveDashboard />
       <PortfolioShowcase />
       <ServicesSection />
       <ProcessSection />
