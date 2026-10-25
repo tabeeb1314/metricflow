@@ -1,0 +1,313 @@
+import { MetricType, MetricSummary, DataPoint, TimeRange, ChannelShare, PricingPlan, FAQItem, TourStep } from '../types';
+
+export const METRIC_SUMMARIES: Record<MetricType, MetricSummary> = {
+  mrr: {
+    id: 'mrr',
+    label: 'Monthly Recurring Revenue',
+    currentDisplay: '$42,850',
+    changeDisplay: '+14.2% vs prior cycle',
+    isPositive: true,
+    benchmark: 'Sector Median: +8.5%',
+    insight: 'Expansion revenue from existing tier-2 accounts accounted for 62% of this cycle\'s net gains.',
+  },
+  retention: {
+    id: 'retention',
+    label: 'Net Revenue Retention (NRR)',
+    currentDisplay: '108.4%',
+    changeDisplay: '+3.1% vs prior cycle',
+    isPositive: true,
+    benchmark: 'Healthy Benchmark: >105%',
+    insight: 'Annual seat additions in accounts >6 months old offset monthly customer churn.',
+  },
+  conversion: {
+    id: 'conversion',
+    label: 'Trial-to-Paid Conversion',
+    currentDisplay: '6.4%',
+    changeDisplay: '+0.9% vs prior cycle',
+    isPositive: true,
+    benchmark: 'B2B Average: 3.8% – 5.0%',
+    insight: 'In-app onboarding checklist completion correlates with 3.2× higher subscription conversion.',
+  },
+  cac: {
+    id: 'cac',
+    label: 'Customer Acquisition Cost',
+    currentDisplay: '$184',
+    changeDisplay: '-8.5% efficiency gain',
+    isPositive: true, // lower CAC is positive
+    benchmark: 'LTV to CAC Ratio: 4.2×',
+    insight: 'Organic search and direct referrals lowered blended acquisition cost across all tiers.',
+  },
+};
+
+export const TIME_SERIES_DATA: Record<MetricType, Record<TimeRange, DataPoint[]>> = {
+  mrr: {
+    '7d': [
+      { date: 'Oct 19', value: 41200, deltaPercent: 0.5 },
+      { date: 'Oct 20', value: 41500, deltaPercent: 0.7 },
+      { date: 'Oct 21', value: 41900, deltaPercent: 1.0 },
+      { date: 'Oct 22', value: 41850, deltaPercent: -0.1 },
+      { date: 'Oct 23', value: 42200, deltaPercent: 0.8 },
+      { date: 'Oct 24', value: 42550, deltaPercent: 0.8 },
+      { date: 'Oct 25', value: 42850, deltaPercent: 0.7 },
+    ],
+    '30d': [
+      { date: 'Sep 26', value: 37400, deltaPercent: 1.2 },
+      { date: 'Oct 01', value: 38200, deltaPercent: 2.1 },
+      { date: 'Oct 06', value: 39150, deltaPercent: 2.5 },
+      { date: 'Oct 11', value: 40300, deltaPercent: 2.9 },
+      { date: 'Oct 16', value: 41100, deltaPercent: 2.0 },
+      { date: 'Oct 21', value: 41900, deltaPercent: 1.9 },
+      { date: 'Oct 25', value: 42850, deltaPercent: 2.3 },
+    ],
+    '90d': [
+      { date: 'Aug 01', value: 31200, deltaPercent: 3.5 },
+      { date: 'Aug 15', value: 33100, deltaPercent: 6.1 },
+      { date: 'Sep 01', value: 35400, deltaPercent: 6.9 },
+      { date: 'Sep 15', value: 37200, deltaPercent: 5.1 },
+      { date: 'Oct 01', value: 39800, deltaPercent: 7.0 },
+      { date: 'Oct 15', value: 41600, deltaPercent: 4.5 },
+      { date: 'Oct 25', value: 42850, deltaPercent: 3.0 },
+    ],
+  },
+  retention: {
+    '7d': [
+      { date: 'Oct 19', value: 106.8, deltaPercent: 0.2 },
+      { date: 'Oct 20', value: 107.1, deltaPercent: 0.3 },
+      { date: 'Oct 21', value: 107.0, deltaPercent: -0.1 },
+      { date: 'Oct 22', value: 107.5, deltaPercent: 0.5 },
+      { date: 'Oct 23', value: 107.9, deltaPercent: 0.4 },
+      { date: 'Oct 24', value: 108.1, deltaPercent: 0.2 },
+      { date: 'Oct 25', value: 108.4, deltaPercent: 0.3 },
+    ],
+    '30d': [
+      { date: 'Sep 26', value: 104.2, deltaPercent: 0.8 },
+      { date: 'Oct 01', value: 105.0, deltaPercent: 0.8 },
+      { date: 'Oct 06', value: 105.7, deltaPercent: 0.7 },
+      { date: 'Oct 11', value: 106.4, deltaPercent: 0.7 },
+      { date: 'Oct 16', value: 107.1, deltaPercent: 0.7 },
+      { date: 'Oct 21', value: 107.9, deltaPercent: 0.7 },
+      { date: 'Oct 25', value: 108.4, deltaPercent: 0.5 },
+    ],
+    '90d': [
+      { date: 'Aug 01', value: 101.5, deltaPercent: 1.2 },
+      { date: 'Aug 15', value: 102.8, deltaPercent: 1.3 },
+      { date: 'Sep 01', value: 103.9, deltaPercent: 1.1 },
+      { date: 'Sep 15', value: 105.1, deltaPercent: 1.2 },
+      { date: 'Oct 01', value: 106.3, deltaPercent: 1.1 },
+      { date: 'Oct 15', value: 107.5, deltaPercent: 1.1 },
+      { date: 'Oct 25', value: 108.4, deltaPercent: 0.8 },
+    ],
+  },
+  conversion: {
+    '7d': [
+      { date: 'Oct 19', value: 5.9, deltaPercent: 0.1 },
+      { date: 'Oct 20', value: 6.0, deltaPercent: 0.2 },
+      { date: 'Oct 21', value: 6.1, deltaPercent: 0.2 },
+      { date: 'Oct 22', value: 6.2, deltaPercent: 0.2 },
+      { date: 'Oct 23', value: 6.2, deltaPercent: 0.0 },
+      { date: 'Oct 24', value: 6.3, deltaPercent: 0.2 },
+      { date: 'Oct 25', value: 6.4, deltaPercent: 0.2 },
+    ],
+    '30d': [
+      { date: 'Sep 26', value: 5.2, deltaPercent: 0.3 },
+      { date: 'Oct 01', value: 5.4, deltaPercent: 0.4 },
+      { date: 'Oct 06', value: 5.6, deltaPercent: 0.4 },
+      { date: 'Oct 11', value: 5.8, deltaPercent: 0.4 },
+      { date: 'Oct 16', value: 6.0, deltaPercent: 0.3 },
+      { date: 'Oct 21', value: 6.2, deltaPercent: 0.3 },
+      { date: 'Oct 25', value: 6.4, deltaPercent: 0.3 },
+    ],
+    '90d': [
+      { date: 'Aug 01', value: 4.4, deltaPercent: 0.5 },
+      { date: 'Aug 15', value: 4.8, deltaPercent: 0.9 },
+      { date: 'Sep 01', value: 5.1, deltaPercent: 0.6 },
+      { date: 'Sep 15', value: 5.4, deltaPercent: 0.6 },
+      { date: 'Oct 01', value: 5.8, deltaPercent: 0.7 },
+      { date: 'Oct 15', value: 6.1, deltaPercent: 0.5 },
+      { date: 'Oct 25', value: 6.4, deltaPercent: 0.5 },
+    ],
+  },
+  cac: {
+    '7d': [
+      { date: 'Oct 19', value: 196, deltaPercent: -1.0 },
+      { date: 'Oct 20', value: 194, deltaPercent: -1.0 },
+      { date: 'Oct 21', value: 191, deltaPercent: -1.5 },
+      { date: 'Oct 22', value: 189, deltaPercent: -1.0 },
+      { date: 'Oct 23', value: 187, deltaPercent: -1.1 },
+      { date: 'Oct 24', value: 185, deltaPercent: -1.1 },
+      { date: 'Oct 25', value: 184, deltaPercent: -0.5 },
+    ],
+    '30d': [
+      { date: 'Sep 26', value: 218, deltaPercent: -2.2 },
+      { date: 'Oct 01', value: 210, deltaPercent: -3.7 },
+      { date: 'Oct 06', value: 204, deltaPercent: -2.9 },
+      { date: 'Oct 11', value: 198, deltaPercent: -2.9 },
+      { date: 'Oct 16', value: 192, deltaPercent: -3.0 },
+      { date: 'Oct 21', value: 188, deltaPercent: -2.1 },
+      { date: 'Oct 25', value: 184, deltaPercent: -2.1 },
+    ],
+    '90d': [
+      { date: 'Aug 01', value: 245, deltaPercent: -4.5 },
+      { date: 'Aug 15', value: 236, deltaPercent: -3.7 },
+      { date: 'Sep 01', value: 228, deltaPercent: -3.4 },
+      { date: 'Sep 15', value: 215, deltaPercent: -5.7 },
+      { date: 'Oct 01', value: 202, deltaPercent: -6.0 },
+      { date: 'Oct 15', value: 190, deltaPercent: -5.9 },
+      { date: 'Oct 25', value: 184, deltaPercent: -3.2 },
+    ],
+  },
+};
+
+export const CHANNEL_ATTRIBUTION: ChannelShare[] = [
+  { channel: 'Direct / Word-of-Mouth', percentage: 38, amountDisplay: '$16,280', colorClass: 'bg-sky-500' },
+  { channel: 'Organic Search & Docs', percentage: 29, amountDisplay: '$12,426', colorClass: 'bg-teal-400' },
+  { channel: 'App Store / Ecosystem', percentage: 21, amountDisplay: '$8,998', colorClass: 'bg-indigo-400' },
+  { channel: 'Partner Referrals', percentage: 12, amountDisplay: '$5,146', colorClass: 'bg-amber-400' },
+];
+
+export const PRICING_PLANS: PricingPlan[] = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    tagline: 'Essential visibility for solo operators and early proofs-of-concept.',
+    monthlyPrice: 0,
+    annualMonthlyPrice: 0,
+    features: [
+      'Up to 2 connected stream connectors',
+      'Daily automated data synchronization',
+      'Pre-built revenue & cohort dashboards',
+      'Standard email snapshot report (Weekly)',
+      'Community support forum access',
+    ],
+    limits: {
+      dataSources: '2 connections',
+      refreshRate: 'Daily',
+      teamMembers: '1 user seat',
+      historyDepth: '90 days retention',
+    },
+    ctaLabel: 'Select Starter Demo',
+  },
+  {
+    id: 'growth',
+    name: 'Growth',
+    tagline: 'Actionable decision intelligence for scaling businesses and startups.',
+    monthlyPrice: 19,
+    annualMonthlyPrice: 15, // $180/yr (~21% discount)
+    popular: true,
+    features: [
+      'Up to 8 connected stream connectors',
+      'Hourly automated data synchronization',
+      'Plain-English root-cause anomaly detection',
+      'Custom KPI builder & threshold alerts',
+      'Direct Slack & Email executive briefings',
+      'CSV / PDF scheduled data exports',
+    ],
+    limits: {
+      dataSources: '8 connections',
+      refreshRate: 'Hourly',
+      teamMembers: '5 user seats',
+      historyDepth: '2 years retention',
+    },
+    ctaLabel: 'Select Growth Demo',
+  },
+  {
+    id: 'scale',
+    name: 'Scale',
+    tagline: 'High-frequency reporting and team alignment for mature workflows.',
+    monthlyPrice: 49,
+    annualMonthlyPrice: 39, // $468/yr (~20% discount)
+    features: [
+      'Unlimited stream connectors & warehouses',
+      'Near real-time 15-minute synchronization',
+      'Multi-currency & cohort lifetime value (LTV)',
+      'Dedicated audit trails & team permissions',
+      'Custom webhook triggers & export pipelines',
+      'Priority implementation walkthrough support',
+    ],
+    limits: {
+      dataSources: 'Unlimited',
+      refreshRate: '15 minutes',
+      teamMembers: 'Unlimited seats',
+      historyDepth: 'Unlimited history',
+    },
+    ctaLabel: 'Select Scale Demo',
+  },
+];
+
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    category: 'Product Concept',
+    question: 'What is MetricFlow, and who is it designed for?',
+    answer: 'MetricFlow is a conceptual business intelligence platform specifically architected for small businesses, startup founders, and independent operators. Rather than requiring complex SQL queries or extensive data engineering teams, MetricFlow automatically aggregates fragmented data sources (payment gateways, web metrics, and accounting) into clear, plain-English decision briefings.',
+  },
+  {
+    id: 'faq-2',
+    category: 'Comparison',
+    question: 'How is MetricFlow different from enterprise tools like Tableau or Looker?',
+    answer: 'Traditional enterprise BI platforms are powerful but demand dedicated data engineers, complex schema maintenance, and lengthy setup times. MetricFlow focuses strictly on opinionated decision outcomes: you plug in your connectors, and within 15 minutes you receive clean, pre-calculated metrics and plain-English variance warnings rather than a blank canvas.',
+  },
+  {
+    id: 'faq-3',
+    category: 'Portfolio Nature',
+    question: 'Is MetricFlow a real operating company?',
+    answer: 'No. MetricFlow is an original fictional product concept created to demonstrate modern, high-standard frontend engineering, accessible UI/UX design, interactive visualization systems, and conversion-focused design architecture. All metrics, logos, and features are purely illustrative.',
+  },
+  {
+    id: 'faq-4',
+    category: 'Data & Privacy',
+    question: 'How does this demonstration website handle submitted data?',
+    answer: 'This website is 100% client-side. The interactive dashboard, plan selection, and demo inquiry form run entirely in your local browser sandbox. No personal data, email addresses, or form inputs are ever transmitted to or stored on external servers or third-party trackers.',
+  },
+  {
+    id: 'faq-5',
+    category: 'Billing & Tiers',
+    question: 'How does the annual discount calculation work?',
+    answer: 'The annual option provides approximately 20% savings compared to standard monthly billing. For example, the Growth tier is $19 when billed month-to-month, or $15 per month when billed annually ($180 upfront for 12 months). Since this is a concept project, no payment processing exists.',
+  },
+  {
+    id: 'faq-6',
+    category: 'Exporting',
+    question: 'Can I export reports from the interactive demo?',
+    answer: 'Yes! In the interactive preview section above, click the "Export Sample CSV" button to download a live, client-generated CSV file containing the currently selected metric dataset and timestamped values.',
+  },
+];
+
+export const TOUR_STEPS: TourStep[] = [
+  {
+    title: 'Zero-ETL Stream Connectors',
+    category: 'Data Ingestion',
+    subtitle: 'Consolidate Stripe, Shopify, PostgreSQL, and Sheets in minutes.',
+    description: 'Connect your revenue and web streams using pre-built, verified adapters. MetricFlow handles schema normalization behind the scenes so you never write custom data extraction scripts.',
+    highlightMetric: '4 Ingestion Streams Synchronized',
+    insightText: 'Data streams harmonized across 3 timezones with automated currency alignment.',
+    badgeText: 'Step 1 of 4',
+  },
+  {
+    title: 'Noise-Free Executive Overview',
+    category: 'Visual Synthesis',
+    subtitle: 'See core health indicators at a glance without clutter.',
+    description: 'Review Monthly Recurring Revenue, Churn, Retention, and blended Acquisition Costs in one focused viewport. High-contrast typography and tabular figures keep key numbers unmistakable.',
+    highlightMetric: '$42,850 MRR · 108.4% NRR',
+    insightText: 'Prioritize attention on metrics that directly influence cash runway and expansion.',
+    badgeText: 'Step 2 of 4',
+  },
+  {
+    title: 'Plain-English Variance Explanations',
+    category: 'Automated Insight',
+    subtitle: 'Understand why a metric shifted without digging through raw logs.',
+    description: 'When metrics deviate by more than 5% from historical baselines, MetricFlow generates a concise explanatory narrative explaining the primary contributing factor.',
+    highlightMetric: '+14.2% Growth Variance Identified',
+    insightText: 'Identified tier-2 expansion as the root driver rather than top-of-funnel ad spend.',
+    badgeText: 'Step 3 of 4',
+  },
+  {
+    title: 'Weekly Monday Morning Briefings',
+    category: 'Action Delivery',
+    subtitle: 'Automated summaries sent directly to your inbox or Slack channel.',
+    description: 'Eliminate Sunday night spreadsheet wrangling. MetricFlow prepares an executive brief highlighting wins, warnings, and recommended actions for the upcoming week.',
+    highlightMetric: 'Zero Manual Formatting Hours',
+    insightText: 'Delivers scheduled updates every Monday at 08:00 AM in your local timezone.',
+    badgeText: 'Step 4 of 4',
+  },
+];

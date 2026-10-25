@@ -1,0 +1,6 @@
+{
+  "name": "MetricFlow – Business Analytics SaaS",
+  "description": "MetricFlow is a premium analytics and business intelligence platform designed to turn scattered business data into clear, decisive moves.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

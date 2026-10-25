@@ -1,0 +1,39 @@
+/*
+ * MetricFlow Design System & Standalone Stylesheet
+ * Portfolio SaaS Concept — Typography, Elevation & Token Architecture
+ */
+
+:root {
+  --color-canvas: #090d16;
+  --color-surface: #0c121e;
+  --color-surface-hover: #131d31;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-primary: #38bdf8;
+  --color-primary-hover: #7dd3fc;
+  --color-teal: #2dd4bf;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-dim: #64748b;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
